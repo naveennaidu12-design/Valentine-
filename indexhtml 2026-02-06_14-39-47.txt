@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffd6e8, #fff0f5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Comic Sans MS', cursive;
+      overflow: hidden;
+    }
+
+    .bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("https://i.imgur.com/0Z8FQZp.png");
+      background-size: 120px;
+      opacity: 0.15;
+    }
+
+    .card {
+      position: relative;
+      background: white;
+      padding: 30px 40px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      animation: pop 1s ease;
+      z-index: 1;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+
+    h1 {
+      color: #ff4d88;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #yes {
+      background: #ff4d88;
+      color: white;
+    }
+
+    #yes:hover {
+      transform: scale(1.1);
+    }
+
+    #no {
+      background: #ccc;
+      position: relative;
+    }
+
+    .result {
+      display: none;
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .pig {
+      width: 200px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg"></div>
+
+  <div class="card" id="card">
+    <h1>Will you be my Valentine? 💕</h1>
+
+    <div class="buttons">
+      <button id="yes">Yes 💖</button>
+      <button id="no">No 😜</button>
+    </div>
+  </div>
+
+  <div class="card result" id="result">
+    <h1>💖 Happy Valentine’s Day Rishitha 💖</h1>
+    <h2>Welcome & Congratulations 🎉</h2>
+    <img class="pig" src="https://i.imgur.com/6XKQZQy.png" alt="Cute Pig">
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const card = document.getElementById("card");
+    const result = document.getElementById("result");
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * 300 - 150;
+      const y = Math.random() * 300 - 150;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      card.style.display = "none";
+      result.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
